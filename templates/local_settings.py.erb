@@ -9,7 +9,7 @@ TEMPLATE_DEBUG = DEBUG
 
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.
-WEBROOT = '<%= scope.lookupvar("horizon::params::root_url") %>/'
+WEBROOT = '<%= @root_url %>/'
 
 # Required for Django 1.5.
 # If horizon is running in production (DEBUG is False), set this
@@ -570,9 +570,9 @@ SECURITY_GROUP_RULES = {
     },
 }
 
-LOGIN_URL = '<%= scope.lookupvar("horizon::params::root_url") %>/auth/login/'
-LOGOUT_URL = '<%= scope.lookupvar("horizon::params::root_url") %>/auth/logout/'
-LOGIN_REDIRECT_URL = '<%= scope.lookupvar("horizon::params::root_url") %>'
+LOGIN_URL = '<%= @root_url %>/auth/login/'
+LOGOUT_URL = '<%= @root_url %>/auth/logout/'
+LOGIN_REDIRECT_URL = '<%= @root_url %>/'
 
 # The Ubuntu package includes pre-compressed JS and compiled CSS to allow
 # offline compression by default.  To enable online compression, install
