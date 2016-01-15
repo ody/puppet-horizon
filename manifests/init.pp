@@ -201,6 +201,10 @@
 #    (optional) Tuskar-UI - Deployment mode ('poc' or 'scale')
 #    Defaults to 'scale'
 #
+#  [*root_url]
+#    (optional) The base URL used to contruct horizon web addresses.
+#    Defaults to '/dashboard' or '/horizon' depending OS
+#
 # === Examples
 #
 #  class { 'horizon':
@@ -256,9 +260,8 @@ class horizon(
   $vhost_extra_params                  = undef,
   $secure_cookies                      = false,
   $django_session_engine               = undef,
-) {
-
-  include ::horizon::params
+  $root_url                            = $::horizon::params::root_url,
+) inherits ::horizon::params {
 
   $hypervisor_defaults = {
     'can_set_mount_point' => true,
