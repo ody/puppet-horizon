@@ -200,6 +200,11 @@
 #  [*tuskar_ui_deployment_mode*]
 #    (optional) Tuskar-UI - Deployment mode ('poc' or 'scale')
 #    Defaults to 'scale'
+
+#  [*session_timeout*]
+#    (optional) The session timeout for horizon in seconds. After this manys seconds of inavtivity
+#    the user is logged out.
+#    Defaults to 1800.
 #
 #  [*root_url]
 #    (optional) The base URL used to contruct horizon web addresses.
@@ -255,6 +260,7 @@ class horizon(
   $tuskar_ui_ironic_discoverd_url      = 'http://127.0.0.1:5050',
   $tuskar_ui_undercloud_admin_password = undef,
   $tuskar_ui_deployment_mode           = 'scale',
+  $session_timeout                     = '1800',
   # DEPRECATED PARAMETERS
   $can_set_mount_point                 = undef,
   $vhost_extra_params                  = undef,

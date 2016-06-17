@@ -67,7 +67,8 @@ describe 'horizon' do
           "LOGOUT_URL = '#{platforms_params[:root_url]}/auth/logout/'",
           "LOGIN_REDIRECT_URL = '#{platforms_params[:root_url]}'",
           'COMPRESS_OFFLINE = True',
-          "FILE_UPLOAD_TEMP_DIR = '/tmp'"
+          "FILE_UPLOAD_TEMP_DIR = '/tmp'",
+          "SESSION_TIMEOUT = '1800'"
         ])
 
         # From internals of verify_contents, get the contents to check for absence of a line
@@ -99,7 +100,8 @@ describe 'horizon' do
           :neutron_options         => {'enable_lb' => true, 'enable_firewall' => true, 'enable_quotas' => false, 'enable_security_group' => false, 'enable_vpn' => true,
                                        'enable_distributed_router' => false, 'enable_ha_router' => false, 'profile_support' => 'cisco', },
           :file_upload_temp_dir    => '/var/spool/horizon',
-          :secure_cookies          => true
+          :secure_cookies          => true,
+          :session_timeout         => '3600'
         })
       end
 
@@ -129,7 +131,8 @@ describe 'horizon' do
           "            'level': 'DEBUG',",
           "            'handlers': ['syslog'],",
           'COMPRESS_OFFLINE = False',
-          "FILE_UPLOAD_TEMP_DIR = '/var/spool/horizon'"
+          "FILE_UPLOAD_TEMP_DIR = '/var/spool/horizon'",
+          "SESSION_TIMEOUT = '3600'"
         ])
       end
 
